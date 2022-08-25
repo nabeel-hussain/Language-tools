@@ -7,9 +7,9 @@
   },
   {
     "name": "Translation",
-    "path": "/blogs",
+    "path": "/translation",
     "isHide": true,
-    "component": "Blogs"
+    "component": "TranslatorView"
     
   },
   {

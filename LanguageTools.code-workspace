@@ -13,5 +13,8 @@
 			"name": "React"
 		}
 	],
+	"settings": {
+		"editor.formatOnSave": true
+	},
 	
 }

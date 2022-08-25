@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+@import "~antd/dist/antd.css";
+.logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 0px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.2);
+}
+.site-layout .site-layout-background {
+  background: #fff;
+}
+[data-theme="dark"] .site-layout .site-layout-background {
+  background: #141414;
+}
+.light-background {
+  background: #fff !important;
+  border-bottom: 1px solid #f0f0f0;
+}
+.ant-layout-content {
+  padding: 20px 0px 0px 56px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo-img {
+  width: 35px;
+  height: auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ant-pagination {
+  padding-top: 20px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ant-table-main {
+  table-layout: fixed;
+}
+.pagination-main-div {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected, .ant-menu.ant-menu-dark .ant-menu-item-selected {
+  background-color: hsla(0,0%,100%,.445);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ant-layout-sider {
+  position: relative;
+  min-width: 0;
+  background: #044666;
+  transition: all .2s;
+}
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+  color: hsla(0,0%,100%,.65);
+  background: #044666;
+}
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: hsla(0,0%,100%,.445);
+}
+.ant-menu-item{ 
+  margin-top: 0px !important;
+}
+.logo-img {
+  height: 115px;
+  width: auto;
+}
+.ant-layout-header {
+  height: 115px !important;
+ 
+}
+.ant-layout-footer {
+  padding: 24px 50px;
+  color: rgba(0,0,0,.65);
+  font-size: 14px;
+  background: #044666 !important;
+  color: white !important
 }

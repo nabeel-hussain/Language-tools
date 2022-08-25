@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Dashboard",
+    "path": "/",
+    "isHide": true,
+    "component": "Home"
+  },
+  {
+    "name": "Translation",
+    "path": "/blogs",
+    "isHide": true,
+    "component": "Blogs"
+    
+  },
+  {
+    "name": "Recents",
+    "path": "/users",
+    "isHide": true,
+    "component": "Users"
+  },
+  {
+    "name": "Grammar Analysis",
+    "path": "/about-us",
+    "isHide": true,
+    "component": "AboutUs"
+  }
+]

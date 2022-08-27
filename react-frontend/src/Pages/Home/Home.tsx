@@ -1,8 +1,12 @@
+import PageContainer from "../../components/Layout/PageContainer";
 
 const Home = () => {
   return (
     <>
-      <p>Home Page</p>
+      <PageContainer title="Dashboard">
+        {" "}
+        <p>Home Page</p>
+      </PageContainer>
     </>
   );
 };

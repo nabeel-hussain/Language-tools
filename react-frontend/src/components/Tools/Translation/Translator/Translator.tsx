@@ -15,7 +15,6 @@ const initialState: Translate = {
 const translateReducer = (state: Translate, action: Action) => {
   switch (action.type) {
     case "text":
-      debugger;
       return { ...state, text: action.payload };
     case "to":
       return { ...state, to: action.payload };
@@ -39,7 +38,6 @@ const Translator = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const onChange = (e: any) => {
-    debugger;
     dispatchTranslate({ type: "text", payload: e.target.value });
   };
   const handleFromLanguageChange = (value: string) => {
@@ -63,6 +61,9 @@ const Translator = () => {
     await translate(translateState).then((res) => {
       setResponse(res);
       setIsLoading(false);
+    }).catch(error=>{
+      setIsLoading(false);
+      message.error("An error has been occured. Please try again");
     });
   };
   const handleClear = async () => {
@@ -105,7 +106,7 @@ const Translator = () => {
         </Row>
         <br></br>
         <Row justify="start">
-          <Col span={1}> From:</Col>
+          <Col span={2}> From:</Col>
           <Col span={4}>
             <Select
               style={{
@@ -148,7 +149,7 @@ const Translator = () => {
           </Col>
         </Row>
         <Row justify="start">
-          <Col span={1}> To:</Col>
+          <Col span={2}> To:</Col>
           <Col span={4}>
             <Select
               style={{

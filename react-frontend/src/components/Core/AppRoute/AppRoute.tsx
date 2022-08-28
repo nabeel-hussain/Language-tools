@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import { Routes, Route } from "react-router-dom";
 import { JsxElement } from "typescript";
 import path from "path";
-import { Users, Home, TranslatorView, AboutUs } from "../../../Pages";
+import { Users, Home, TranslatorView, AboutUs,SpellCheckerView } from "../../../Pages";
 
 const MenuItems: MenuItem[] = require("../../../Data/menu.json");
 interface Registry {
@@ -15,6 +15,7 @@ const componentRegistry: Registry[] = [
   { Key: "TranslatorView", Component: <TranslatorView /> },
   { Key: "Users", Component: <Users /> },
   { Key: "AboutUs", Component: <AboutUs /> },
+  { Key: "SpellCheckerView", Component: <SpellCheckerView /> },
 ];
 
 const AppRoute = () => {

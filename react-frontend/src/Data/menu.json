@@ -13,15 +13,9 @@
     
   },
   {
-    "name": "Recents",
-    "path": "/users",
+    "name": "Spell Checker",
+    "path": "/spell-checker",
     "isHide": true,
-    "component": "Users"
-  },
-  {
-    "name": "Grammar Analysis",
-    "path": "/about-us",
-    "isHide": true,
-    "component": "AboutUs"
+    "component": "SpellCheckerView"
   }
 ]

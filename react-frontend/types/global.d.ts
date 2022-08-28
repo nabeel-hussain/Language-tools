@@ -22,3 +22,12 @@ interface User{
   username: string;
   password: string;
 }
+interface SpellChecker {
+  lang: string;
+  text: string;
+}
+interface SpellCheckerResult {
+  word: string;
+  correctword: string;
+  candidates: []
+}

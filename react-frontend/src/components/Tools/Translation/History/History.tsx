@@ -14,7 +14,6 @@ const History = (props: Props) => {
       props.onClearHistory();
     }
   };
-  debugger;
   return (
     <Drawer
       placement="right"

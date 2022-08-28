@@ -1,12 +1,6 @@
 from models.user import User;
 import hmac
-users = [
-        User(
-        1,
-        'lang_tools',
-        'VeDJvcvB0uiQ1Hd'
-        )
-]
+users = [User(1, 'lang_tools', 'VeDJvcvB0uiQ1Hd')]
 
 username_mapping = {
    u.username: u for u in users

@@ -1,17 +1,25 @@
 {
-	"folders": [
-		{
-			"path": ".",
-			"name": "Root"
-		},
-		{
-			"path": "./flask-server",
-			"name": "Flask"
-		},
-		{
-			"path": "./react-frontend",
-			"name": "React"
-		}
-	],
-	
+  "folders": [
+    {
+      "path": ".",
+      "name": "Root"
+    },
+    {
+      "path": "./flask-server",
+      "name": "Flask"
+    },
+    {
+      "path": "./react-frontend",
+      "name": "React"
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[python]": {
+      "editor.defaultFormatter": "ms-python.python"
+    },
+    "powershell.cwd": "d:\\Projects\\Language Tools\\languagetools-react-frontend\\flask-server",
+    "python.formatting.autopep8Path": ""
+  }
 }

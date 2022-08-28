@@ -1,5 +1,6 @@
 import Home from "./Home";
 import Users from "./Users";
-import Blogs from "./Blogs";
+import {TranslatorView} from "./Translation";
 import AboutUs from "./About Us/";
-export { Home, Users, Blogs, AboutUs };
+import SpellCheckerView from "./SpellChecker/SpellCheckerView";
+export { Home, Users, TranslatorView, AboutUs,SpellCheckerView };

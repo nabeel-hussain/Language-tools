@@ -32,7 +32,6 @@
   <li>Spell checker shows all possible words for each mispelled word so that user can have better idea..</li>
  </ul></li>
 </ul>
-<h2>Screenshot</h2>
 <h2> Project Setup</h2>
 <h4>Frontend - React</h3>
 In the project directory, you can run:

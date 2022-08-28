@@ -11,11 +11,10 @@ backend.interceptors.response.use((res) => res,(error)=>{
 backend.interceptors.response.use( (response)=> {
   return response;
 },  (error)=> {
-  debugger;
   if(error.request.status===401 || error.request.status===422){
     getToken({
-      username: "lang_tools",
-      password: "VeDJvcvB0uiQ1Hd",
+      username: config.username,
+      password: config.password,
     });
   }
 });

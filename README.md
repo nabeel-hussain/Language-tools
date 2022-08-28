@@ -61,13 +61,21 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 <h4>Backend - Python</h3>
 `python -m venv virtual-env`
+
 Create Python virtual environment.
+
 `.\virtual-env\Scripts\activate `
+
 Activate virtual environment
+
 `pip install -r requirements.txt`
+
 Install all the packages from requirements.txt.
+
 `python run server.py`
+
 Run the python server
+
 Access Urls for APIS.
 <ul>
   <li>/history</li>

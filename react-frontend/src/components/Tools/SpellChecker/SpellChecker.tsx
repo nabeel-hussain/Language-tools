@@ -13,7 +13,8 @@ import {
 } from "antd";
 import { useState, useReducer } from "react";
 import { getSpellCheckResult } from "../../../Api/spellcheck";
-import { ArrowRightOutlined } from "@ant-design/icons";
+import { ArrowRightOutlined, CopyOutlined } from "@ant-design/icons";
+import { copyToClipBoard } from "../../../Utilities/Global";
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -107,6 +108,12 @@ const SpellChecker = () => {
   const handleClear = () =>{
     dispatchSpellChecker({type:"clear",payload:""})
   }
+  const handleCopy = () => {
+    copyToClipBoard(
+      spellCheckerState.text
+    );
+    message.success("Copied");
+  };
   return (
     <>
       <Spin spinning={isLoading}>
@@ -178,7 +185,13 @@ const SpellChecker = () => {
           </Col>
         </Row>
         <br></br>
-
+        <Col span={24}>
+          {" "}
+          <CopyOutlined
+            style={{ float: "right" }}
+            onClick={(e) => handleCopy()}
+          />
+        </Col>
         <Row>
           <Col span={24}>
             <TextArea

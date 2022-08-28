@@ -15,7 +15,16 @@ import backend from "./Api/backend";
 const { Content } = Layout;
 
 const App = () => {
-  
+  useEffect(() => {
+    if (!sessionStorage.getItem("jwtToken")) {
+      getToken({
+          username: "lang_tools",
+          password: "VeDJvcvB0uiQ1Hd",
+        });
+    }else{
+      backend.defaults.headers.common["Authorization"] = "Bearer " + sessionStorage.getItem("jwtToken");
+    }
+  });
   return (
     <BrowserRouter>
       <Layout>

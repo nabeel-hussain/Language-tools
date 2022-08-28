@@ -3,6 +3,8 @@ import { useReducer, useState } from "react";
 import { translate } from "../../../../Api/translate";
 import { clearHistory, getHistory } from "../../../../Api/history";
 import History from "../History";
+import { CopyOutlined } from "@ant-design/icons";
+import { copyToClipBoard } from "../../../../Utilities/Global";
 const { Option } = Select;
 const { TextArea } = Input;
 const languages: Language[] = require("../../../../Data/languages.json");
@@ -35,8 +37,9 @@ const Translator = () => {
   const [history, setHistory] = useState<Array<TranslationHistory>>([]);
   const [historyVisibility, setHistoryVisibility] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
+  const [alertMessage, setAlertMessage] = useState(
+    "An error has been occured. Please try again"
+  );
   const onChange = (e: any) => {
     dispatchTranslate({ type: "text", payload: e.target.value });
   };
@@ -58,13 +61,15 @@ const Translator = () => {
       return;
     }
     setIsLoading(true);
-    await translate(translateState).then((res) => {
-      setResponse(res);
-      setIsLoading(false);
-    }).catch(error=>{
-      setIsLoading(false);
-      message.error("An error has been occured. Please try again");
-    });
+    await translate(translateState)
+      .then((res) => {
+        setResponse(res);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        message.error(alertMessage);
+      });
   };
   const handleClear = async () => {
     dispatchTranslate({ type: "clear", payload: "" });
@@ -72,18 +77,36 @@ const Translator = () => {
   };
   const handleHistory = async () => {
     if (!historyVisibility) {
-      await getHistory().then((res) => {
-        setHistory(res);
-      });
+      await getHistory()
+        .then((res) => {
+          setHistory(res);
+        })
+        .catch((err) => {
+          message.error(alertMessage);
+        });
     }
     setHistoryVisibility(!historyVisibility);
   };
   const handleClearHistory = async () => {
-    await clearHistory().then((res) => {
-      if (res) {
-        setHistory([]);
-      }
-    });
+    await clearHistory()
+      .then((res) => {
+        if (res) {
+          setHistory([]);
+        }
+      })
+      .catch((error) => {
+        message.error(alertMessage);
+      });
+  };
+  const handleCopy = (text: string) => {
+    copyToClipBoard(
+      text === "inputText" && translateState.text !== ""
+        ? translateState.text
+        : response !== ""
+        ? response
+        : ""
+    );
+    message.success("Copied");
   };
   return (
     <>
@@ -133,6 +156,13 @@ const Translator = () => {
           </Col>
         </Row>
         <br></br>
+        <Col span={24}>
+          {" "}
+          <CopyOutlined
+            style={{ float: "right" }}
+            onClick={(e) => handleCopy("inputText")}
+          />
+        </Col>
 
         <Row>
           <Col span={24}>
@@ -145,7 +175,9 @@ const Translator = () => {
                 height: 120,
               }}
               onChange={onChange}
-            />
+            >
+              <span>test</span>
+            </TextArea>
           </Col>
         </Row>
         <Row justify="start">
@@ -176,6 +208,13 @@ const Translator = () => {
           </Col>
         </Row>
         <br></br>
+        <Col span={24}>
+          {" "}
+          <CopyOutlined
+            style={{ float: "right" }}
+            onClick={(e) => handleCopy("outputText")}
+          />
+        </Col>
         <Row>
           <Col span={24}>
             <TextArea

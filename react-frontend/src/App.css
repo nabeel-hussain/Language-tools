@@ -132,3 +132,6 @@
 .ant-input[disabled] {
   color: black;
 }
+.ant-collapse-header{
+  font-weight: bold !important;
+}

@@ -35,10 +35,15 @@ const SideBar = () => {
   const handleMenuItemClick = (name: string) => {
     setSelectedItem(name);
   };
+ let defaultKey =  window.location.pathname.includes("translation")
+    ? "1"
+    : window.location.pathname.includes("spell")
+    ? "2"
+    : "0";
   return (
     <>
       <Sider width={200} className="site-layout-background">
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["0"]}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKey]}>
           {MenuItems.map((item, index) =>
             item.subMenu && item.subMenu.length > 0 ? (
               renderChildItems(item)

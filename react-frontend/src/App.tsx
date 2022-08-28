@@ -5,21 +5,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "antd";
 
 import AppRoute from "./components/Core/AppRoute";
-import MainHeader from "./components/Layout/MainHeader/Header";
-import SideBar from "./components/Layout/SideBar/SideBar";
-import MainFooter from "./components/Layout/Footer/MainFooter";
+import MainHeader from "./components/Layout/MainHeader";
+import SideBar from "./components/Layout/SideBar";
+import MainFooter from "./components/Layout/Footer";
 
 import { getToken } from "./Api/authentication";
 import { emitWarning } from "process";
 import backend from "./Api/backend";
+import config from "./Shared/config";
 const { Content } = Layout;
 
 const App = () => {
   useEffect(() => {
     if (!sessionStorage.getItem("jwtToken")) {
       getToken({
-          username: "lang_tools",
-          password: "VeDJvcvB0uiQ1Hd",
+          username: config.username,
+          password: config.password,
         });
     }else{
       backend.defaults.headers.common["Authorization"] = "Bearer " + sessionStorage.getItem("jwtToken");

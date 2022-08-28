@@ -9,6 +9,7 @@ import {
   Modal,
   Typography,
   Popover,
+  message,
 } from "antd";
 import { useState, useReducer } from "react";
 import { getSpellCheckResult } from "../../../Api/spellcheck";
@@ -55,12 +56,17 @@ const SpellChecker = () => {
     dispatchSpellChecker({ payload: value, type: "lang" });
   };
   const handleSpellChecker = async () => {
-    let result = await getSpellCheckResult(spellCheckerState);
-    setSpellCheckResult(result);
-    setIsModalVisible(true);
-  };
-  const showModal = () => {
-    setIsModalVisible(true);
+    setIsLoading(true)
+    await getSpellCheckResult(spellCheckerState).then(res=>{   
+      setSpellCheckResult(res);
+      setIsModalVisible(true);
+      setIsLoading(false)
+
+    }).catch(error=>{
+      setIsLoading(false)
+      message.error("An error has been occured. Please try again.")
+    });
+    
   };
 
   const handleOk = () => {
@@ -78,7 +84,6 @@ const SpellChecker = () => {
     setSpellCheckResult([])
 
   };
-  console.log(spellCheckerState.text);
   const getPopoverContent = (mispelled: SpellCheckerResult) => {
     return (
       <>

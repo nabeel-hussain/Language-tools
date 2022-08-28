@@ -1,8 +1,9 @@
 from flask import request,jsonify
 from flask_restful import Resource,request
 from spellchecker import SpellChecker as SpellChk
-
+from flask_jwt_extended import jwt_required
 class SpellChecker(Resource):
+    @jwt_required()
     def post(self):
 
         text = request.get_json();

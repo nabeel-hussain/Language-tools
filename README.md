@@ -35,14 +35,50 @@
 <h2>Screenshot</h2>
 <h2> Project Setup</h2>
 <h4>Frontend - React</h3>
-<h4>Backend - Python</h3>
-<h2> Features that can be added</h2>
-There are two parts in the project. 
-## Frontend - React
-Frontend of this application has been developed by using React Js with typescript. Ant Design is the major UI libary used for the development of many compoents. 
-### Run Project
-npm install
-### Build Project
-npm run build
+In the project directory, you can run:
 
-## Backend - Python
+ `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+ `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+`npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h4>Backend - Python</h3>
+`python -m venv virtual-env`
+Create Python virtual environment.
+`.\virtual-env\Scripts\activate `
+Activate virtual environment
+`pip install -r requirements.txt`
+Install all the packages from requirements.txt.
+`python run server.py`
+Run the python server
+Access Urls for APIS.
+<ul>
+  <li>/history</li>
+  <li>/translate</li>
+  <li>/token</li>
+  <li>/spell-checker</li>
+ </ul>
+<h2> Features that can be added</h2>
+<ul>
+  <li>Auto Detect Language</li>
+  <li>Rephrase sentences</li>
+  <li>Grammar Analsysis</li>
+  <li>Speech Recognition</li>
+ </ul>

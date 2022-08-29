@@ -136,7 +136,7 @@ const SpellChecker = () => {
                       width: "20vw"
                     }}
                       placement="bottomRight"
-                      title="Test"
+                      title={mispelled.word}
                       content={getPopoverContent(mispelled)}
                     >
                       <Text type={"warning"}>{word} </Text>

@@ -5,6 +5,7 @@ var backend = axios.create({
   baseURL: config.backend,
   withCredentials: true,
 });
+backend.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 backend.interceptors.response.use((res) => res,(error)=>{
   throw error;
 });

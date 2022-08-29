@@ -64,31 +64,7 @@ stages:
       inputs:
         versionSpec: '16.x'
 
-    - task: Npm@1
-      displayName: 'npm install'
-      inputs:
-        command: 'install'
-        workingDir: 'react-frontend'
-
-    - task: Npm@1
-      displayName: 'npm build'
-      inputs:
-        command: 'custom'
-        customCommand: 'run build'
-        workingDir: 'react-frontend'
-    - task: ArchiveFiles@2
-      inputs:
-        rootFolderOrFile: 'react-frontend/build'
-        includeRootFolder: false
-        archiveType: 'zip'
-        archiveFile: '$(Build.ArtifactStagingDirectory)/frontend.zip'
-        replaceExistingArchive: true
-
-    - task: PublishBuildArtifacts@1
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)/frontend'
-        ArtifactName: 'drop'
-        publishLocation: 'Container'
+    
 - stage: Deploy
   displayName: 'Deploy Web App'
   dependsOn: Build

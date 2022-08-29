@@ -7,12 +7,15 @@ from resources.history import History
 from resources.translation import Translation
 from resources.user import User
 from resources.spell_checker import SpellChecker
+from flask_cors import CORS
+
 app = Flask(__name__)
 api = Api(app)
 app.config['SESSION_PERMANENT'] = False
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['JWT_SECRET_KEY'] = '0uaEPwYIy24PcUomEPXHl5zKL83RHA4pCrPEulF4CtASUA6Pvk'
 Session(app)
+CORS(app)
 
 jwt = JWTManager(app)
 

@@ -1,10 +1,8 @@
 import { ReactNode } from "react";
 import { Routes, Route } from "react-router-dom";
 import {
-  Users,
   Home,
   TranslatorView,
-  AboutUs,
   SpellCheckerView,
 } from "../../../Pages";
 
@@ -16,8 +14,6 @@ interface Registry {
 const componentRegistry: Registry[] = [
   { Key: "Home", Component: <Home /> },
   { Key: "TranslatorView", Component: <TranslatorView /> },
-  { Key: "Users", Component: <Users /> },
-  { Key: "AboutUs", Component: <AboutUs /> },
   { Key: "SpellCheckerView", Component: <SpellCheckerView /> },
 ];
 //This function will setup all the routes insdie the application.

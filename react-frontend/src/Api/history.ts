@@ -1,8 +1,9 @@
 import backend from "./backend";
 import config from "../Shared/config";
+//THis function will get the history of translation from flask-server if running on localhost or from localstorage if running on live
 export const getHistory = async () => {
   let result: Array<TranslationHistory> = [];
-  if (config.backend!=="") {
+  if (config.backend !== "") {
     result = JSON.parse(localStorage.getItem("history") || "[]");
     return result;
   }
@@ -10,8 +11,9 @@ export const getHistory = async () => {
   result = res.data.history as Array<TranslationHistory>;
   return result;
 };
+//This function will clear the history of translation
 export const clearHistory = async () => {
-  if (config.backend!=="") {
+  if (config.backend !== "") {
     localStorage.removeItem("history");
     return true;
   }

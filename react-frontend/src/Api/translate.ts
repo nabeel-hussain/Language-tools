@@ -1,5 +1,6 @@
 import backend from "./backend";
 import config from "../Shared/config";
+//This function will translate the input language to the output lanague by using flask-server endpoint
 export const translate = async (translateObj: Translate) => {
   let res = await backend.post("/translate", translateObj);
   let result = res.data.join("\r\n") as string;

@@ -8,12 +8,14 @@ import { copyToClipBoard } from "../../../../Utilities/Global";
 const { Option } = Select;
 const { TextArea } = Input;
 const languages: Language[] = require("../../../../Data/languages.json");
-
+//Initializing the translation state.
+//Setting default languages to English and text empty
 const initialState: Translate = {
   to: "en",
   from: "en",
   text: "",
 };
+//Reducer to manage the translate state
 const translateReducer = (state: Translate, action: Action) => {
   switch (action.type) {
     case "text":
@@ -49,6 +51,8 @@ const Translator = () => {
   const handleToLanguageChange = (value: string) => {
     dispatchTranslate({ type: "to", payload: value });
   };
+  //Function to handle the translate button
+  //It sends the call to flask server and get the translated content
   const handleTranslate = async () => {
     if (translateState.text === "") {
       message.error("Please fill the Input field");
@@ -75,6 +79,8 @@ const Translator = () => {
     dispatchTranslate({ type: "clear", payload: "" });
     setResponse("");
   };
+  //This function get the history from flask server or local storage in case of live site. 
+  //It set the drawer to be opened so that user can see the history in separate drawer on the right side. 
   const handleHistory = async () => {
     if (!historyVisibility) {
       await getHistory()

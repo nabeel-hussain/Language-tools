@@ -1,20 +1,15 @@
-import React, { useState } from "react";
-import {
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { Breadcrumb, Layout, Menu } from "antd";
-import { MenuItem } from "../../../Models/MenuItem";
+import  { useState } from "react";
+
+import {  Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
 
 const SubMenu = Menu.SubMenu;
-//const MenuItems: MenuItem[] = require("../Data/menu.json");
-const { Header, Content, Sider } = Layout;
+const {  Sider } = Layout;
 const MenuItems: MenuItem[] = require("../../../Data/menu.json");
 
 const SideBar = () => {
   const [selectedItem, setSelectedItem] = useState("Home");
+  //Function to render the subitems.
   const renderChildItems = (item: MenuItem) => {
     return (
       <>
@@ -32,10 +27,8 @@ const SideBar = () => {
       </>
     );
   };
-  const handleMenuItemClick = (name: string) => {
-    setSelectedItem(name);
-  };
- let defaultKey =  window.location.pathname.includes("translation")
+  //This will set the selected item if page is reloaded inside a particular sub path. 
+  let defaultKey = window.location.pathname.includes("translation")
     ? "1"
     : window.location.pathname.includes("spell")
     ? "2"
@@ -48,11 +41,7 @@ const SideBar = () => {
             item.subMenu && item.subMenu.length > 0 ? (
               renderChildItems(item)
             ) : (
-              <Menu.Item
-                //onClick={() => handleMenuItemClick(item.name)}
-
-                key={index}
-              >
+              <Menu.Item key={index}>
                 <Link to={item.path}>{item.name}</Link>
               </Menu.Item>
             )

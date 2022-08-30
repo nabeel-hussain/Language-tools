@@ -16,14 +16,17 @@ import config from "./Shared/config";
 const { Content } = Layout;
 
 const App = () => {
+  //this will generate the token whenever the project reload for the first time.
+  //if the token is already generated then it will skip this process.
   useEffect(() => {
     if (!sessionStorage.getItem("jwtToken")) {
       getToken({
-          username: config.username,
-          password: config.password,
-        });
-    }else{
-      backend.defaults.headers.common["Authorization"] = "Bearer " + sessionStorage.getItem("jwtToken");
+        username: config.username,
+        password: config.password,
+      });
+    } else {
+      backend.defaults.headers.common["Authorization"] =
+        "Bearer " + sessionStorage.getItem("jwtToken");
     }
   });
   return (

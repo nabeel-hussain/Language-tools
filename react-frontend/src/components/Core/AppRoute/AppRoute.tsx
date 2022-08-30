@@ -1,9 +1,12 @@
-import { MenuItem } from "../../../Models/MenuItem";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { Routes, Route } from "react-router-dom";
-import { JsxElement } from "typescript";
-import path from "path";
-import { Users, Home, TranslatorView, AboutUs,SpellCheckerView } from "../../../Pages";
+import {
+  Users,
+  Home,
+  TranslatorView,
+  AboutUs,
+  SpellCheckerView,
+} from "../../../Pages";
 
 const MenuItems: MenuItem[] = require("../../../Data/menu.json");
 interface Registry {
@@ -17,7 +20,7 @@ const componentRegistry: Registry[] = [
   { Key: "AboutUs", Component: <AboutUs /> },
   { Key: "SpellCheckerView", Component: <SpellCheckerView /> },
 ];
-
+//This function will setup all the routes insdie the application.
 const AppRoute = () => {
   return (
     <>
